@@ -1,0 +1,32 @@
+<!-- templates/horarios/horario_estudiante.html -->
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h1>Mis Horarios</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Materia</th>
+                <th>Día</th>
+                <th>Hora de Inicio</th>
+                <th>Hora de Fin</th>
+                <th>Salón</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for horario in horarios %}
+                <tr>
+                    <td>{{ horario.materia.nombre }}</td>
+                    <td>{{ horario.dia }}</td>
+                    <td>{{ horario.hora_inicio }}</td>
+                    <td>{{ horario.hora_fin }}</td>
+                    <td>{{ horario.salon }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No tienes horarios asignados.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
